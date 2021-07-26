@@ -5,7 +5,7 @@ from sqlalchemy import UniqueConstraint
 from decouple import config
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{config('DB_USER')}:{config('DB_PASSWORD')}@db/main"
+app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{config('DB_USER')}:{config('DB_PASSWORD')}@{config('DB_HOST')}/main"
 CORS(app)
 
 db = SQLAlchemy(app)
