@@ -1,52 +1,22 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Nav from './components/Nav';
+import Menu from './components/Menu';
+import Products from './admin/Products';
 import './App.css';
 
 function App() {
   return (
     <div>
       <Nav />
+
       <div className="container-fluid">
         <div className="row">
-          <nav
-            id="sidebarMenu"
-            className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
-          >
-            <div className="position-sticky pt-3">
-              <ul className="nav flex-column">
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    <span data-feather="home"></span>
-                    Dashboard
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-
+          <Menu />
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <h2>Section title</h2>
-            <div className="table-responsive">
-              <table className="table table-striped table-sm">
-                <thead>
-                  <tr>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1,001</td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <BrowserRouter>
+              <Route path="/admin/products/" component={Products} />
+            </BrowserRouter>
           </main>
         </div>
       </div>
